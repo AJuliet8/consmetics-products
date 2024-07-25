@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Management</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom CSS styles */
+    body {
+      padding-top: 60px; /* Adjust based on navbar height */
+    }
+    .card {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Cosmetics Dashboard</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#orderList">Order List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#orderDetails">Order Details</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Order List Section -->
+  <section id="orderList" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Order List</h2>
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search by Order ID, Customer Name, etc." id="searchInput">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button" id="searchButton">Search</button>
+            </div>
+          </div>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Order ID</th>
+                <th scope="col">Customer Name</th>
+                <th scope="col">Order Status</th>
+                <th scope="col">Payment Status</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody id="orderTableBody">
+              <!-- Order items will be dynamically inserted here -->
+              <tr>
+                <td>1</td>
+                <td>John Doe</td>
+                <td>Processing</td>
+                <td>Paid</td>
+                <td><button class="btn btn-info btn-sm" onclick="viewOrderDetails(1)">View Details</button></td>
+              </tr>
+              <!-- Repeat similar structure for other orders -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Order Details Section -->
+  <section id="orderDetails" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4">Order Details</h2>
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Order ID: <span id="orderID"></span></h5>
+              <p class="card-text">Customer Name: <span id="customerName"></span></p>
+              <p class="card-text">Order Status: <span id="orderStatus"></span></p>
+              <p class="card-text">Payment Status: <span id="paymentStatus"></span></p>
+              <p class="card-text">Order Date: <span id="orderDate"></span></p>
+              <button class="btn btn-primary" onclick="updateOrderStatus()">Update Status</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    // Sample data for orders (for demonstration purposes)
+    const orders = [
+      { id: 1, customerName: 'John Doe', orderStatus: 'Processing', paymentStatus: 'Paid', orderDate: '2024-07-02' },
+      { id: 2, customerName: 'Jane Smith', orderStatus: 'Shipped', paymentStatus: 'Paid', orderDate: '2024-07-01' },
+      { id: 3, customerName: 'Michael Johnson', orderStatus: 'Delivered', paymentStatus: 'Paid', orderDate: '2024-06-30' }
+      // Add more orders as needed
+    ];
+
+    // Function to display orders in the table
+    function displayOrders() {
+      const orderTableBody = document.getElementById('orderTableBody');
+      orderTableBody.innerHTML = '';
+
+      orders.forEach(order => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${order.id}</td>
+          <td>${order.customerName}</td>
+          <td>${order.orderStatus}</td>
+          <td>${order.paymentStatus}</td>
+          <td><button class="btn btn-info btn-sm" onclick="viewOrderDetails(${order.id})">View Details</button></td>
+        `;
+        orderTableBody.appendChild(row);
+      });
+    }
+
+    // Function to view order details
+    function viewOrderDetails(orderId) {
+      const order = orders.find(order => order.id === orderId);
+      if (order) {
+        document.getElementById('orderID').textContent = order.id;
+        document.getElementById('customerName').textContent = order.customerName;
+        document.getElementById('orderStatus').textContent = order.orderStatus;
+        document.getElementById('paymentStatus').textContent = order.paymentStatus;
+        document.getElementById('orderDate').textContent = order.orderDate;
+      }
+    }
+
+    // Function to update order status (dummy function for demonstration)
+    function updateOrderStatus() {
+      alert('Order status updated successfully!');
+      // Add logic to update order status here
+    }
+
+    // Initial display of orders
+    displayOrders();
+
+    // Search functionality (dummy for demonstration)
+    document.getElementById('searchButton').addEventListener('click', function() {
+      const searchInput = document.getElementById('searchInput').value.toLowerCase();
+      const filteredOrders = orders.filter(order => {
+        return order.id.toString().includes(searchInput) || order.customerName.toLowerCase().includes(searchInput);
+      });
+      displayFilteredOrders(filteredOrders);
+    });
+
+    // Function to display filtered orders
+    function displayFilteredOrders(filteredOrders) {
+      const orderTableBody = document.getElementById('orderTableBody');
+      orderTableBody.innerHTML = '';
+
+      filteredOrders.forEach(order => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${order.id}</td>
+          <td>${order.customerName}</td>
+          <td>${order.orderStatus}</td>
+          <td>${order.paymentStatus}</td>
+          <td><button class="btn btn-info btn-sm" onclick="viewOrderDetails(${order.id})">View Details</button></td>
+        `;
+        orderTableBody.appendChild(row);
+      });
+    }
+  </script>
+</body>
+</html>

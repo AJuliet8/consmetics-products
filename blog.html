@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Content Management</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom CSS styles */
+    body {
+      padding-top: 60px; /* Adjust based on navbar height */
+    }
+    .card {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Cosmetics Dashboard</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#articleList">Article List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#addArticleForm">Add Article</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Article List Section -->
+  <section id="articleList" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Article List</h2>
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <!-- Sample Article Card -->
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Cosmetics Trends 2024</h5>
+              <p class="card-text">Explore the latest trends in cosmetics for 2024, including new products and techniques.</p>
+              <a href="#" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+          <!-- Repeat this card structure for each article dynamically -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Add Article Form Section -->
+  <section id="addArticleForm" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4">Add New Article</h2>
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <form>
+            <div class="form-group">
+              <label for="articleTitle">Title</label>
+              <input type="text" class="form-control" id="articleTitle" placeholder="Enter article title">
+            </div>
+            <div class="form-group">
+              <label for="articleContent">Content</label>
+              <textarea class="form-control" id="articleContent" rows="6" placeholder="Enter article content"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

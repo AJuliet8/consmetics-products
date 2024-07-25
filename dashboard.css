@@ -1,0 +1,11 @@
+/* Custom CSS styles */
+body {
+    padding-top: 4.5rem; /* Adjust based on navbar height */
+  }
+  
+  .container {
+    max-width: 800px; /* Adjust container width as needed */
+  }
+  
+  /* Optional: Add more custom styles as per your design */
+  

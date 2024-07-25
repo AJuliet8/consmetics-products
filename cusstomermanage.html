@@ -1,0 +1,76 @@
+<!-- addCustomer.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Customer</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom CSS styles */
+    body {
+      padding-top: 60px; /* Adjust based on navbar height */
+    }
+    .card {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Cosmetics Dashboard</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="customerList.html">Customer List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="addCustomer.html">Add Customer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Customer Support</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Add Customer Section -->
+  <section id="addCustomerSection" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4">Add Customer</h2>
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <form id="addCustomerForm" action="submit_customerslist.html" method="post">
+            <div class="form-group">
+              <label for="customerName">Name</label>
+              <input type="text" class="form-control" id="customerName" name="customerName" required>
+            </div>
+            <div class="form-group">
+              <label for="customerEmail">Email</label>
+              <input type="email" class="form-control" id="customerEmail" name="customerEmail" required>
+            </div>
+            <div class="form-group">
+              <label for="customerPhone">Phone Number</label>
+              <input type="text" class="form-control" id="customerPhone" name="customerPhone" required>
+            </div>
+            <button type="customerslist.html" class="btn btn-primary">Add customer</button>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

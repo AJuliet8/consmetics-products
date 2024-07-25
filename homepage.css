@@ -1,0 +1,16 @@
+
+    /* Custom styles can be added here or in an external CSS file */
+    .card {
+      border: none;
+    }
+    .card-img-top {
+      max-height: 200px; /* Limit image height */
+      object-fit: cover; /* Ensure images retain aspect ratio and cover the space */
+    }
+    .text-muted {
+      font-size: 0.9rem; /* Smaller font size for text-muted */
+    }
+    .footer ul li {
+      margin-bottom: 5px; /* Adjust margin for list items in footer */
+    }
+  

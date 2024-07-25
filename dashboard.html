@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom CSS styles */
+    .dashboard-section {
+      margin-top: 20px;
+      padding-bottom: 40px; /* Add padding to create space between sections and footer */
+    }
+    .product-item {
+      margin-bottom: 20px;
+    }
+    footer {
+      background-color: #343a40;
+      color: #ffffff;
+      padding: 20px 0;
+      position: relative; /* Set position to relative to prevent overlapping */
+      bottom: 0;
+      width: 100%;
+      clear: both; /* Ensure footer clears all content */
+    }
+    footer a {
+      color: #ffffff;
+    }
+    .navbar {
+      margin-bottom: 20px; /* Add margin to navbar to separate from sections */
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Cosmetic Dashboard</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#customer-orders">Customer Orders</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#cosmetic-products">Cosmetic Products</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#sales-overview">Sales Overview</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Main Content -->
+<div class="container">
+
+  <!-- Customer Orders Section -->
+  <section id="customer-orders" class="dashboard-section">
+    <h2>Customer Orders</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <img src="customer_order_image1.jpg" class="card-img-top" alt="Customer Order 1">
+          <div class="card-body">
+            <h5 class="card-title">Customer Order 1</h5>
+            <p class="card-text">Details about the customer order.</p>
+            <a href="customer_order1.html" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img src="customer_order_image2.jpg" class="card-img-top" alt="Customer Order 2">
+          <div class="card-body">
+            <h5 class="card-title">Customer Order 2</h5>
+            <p class="card-text">Details about another customer order.</p>
+            <a href="customer_order2.html" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+      </div>
+      <!-- Add more customer orders as needed -->
+    </div>
+  </section>
+
+  <!-- Cosmetic Products Section -->
+  <section id="cosmetic-products" class="dashboard-section">
+    <h2>Cosmetic Products</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card product-item">
+          <img src="img/img.jp" class="card-img-top" alt="Product 1">
+          <div class="card-body">
+            <h5 class="card-title">Product 1</h5>
+            <p class="card-text">Description of product 1.</p>
+            <a href="product1.html" class="btn btn-primary">View Details</a>
+          </div>
+        </div>
+      </div>
+       <!-- Sales Overview Section -->
+  <section id="sales-overview" class="dashboard-section">
+    <img src="img/img.jp" class="card-img-top" alt="Product 1">
+    <h2>Sales Overview</h2>
+    <p>Statistics and charts showing sales performance.</p>
+    <a href="overview section.html" class="btn btn-primary">View Sales Overview</a>
+  </section>
+
+        </div>
+
+<!-- Footer -->
+<footer class="text-center">
+  <div class="container">
+    <p>&copy; 2024 Cosmetic Dashboard. All rights reserved.</p>
+    <p>Designed with <i class="fa fa-heart"></i> by Your Company</p>
+    <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Use</a></p>
+  </div>
+</footer>
+
+<!-- Bootstrap JS, Popper.js, and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

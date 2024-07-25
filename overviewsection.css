@@ -1,0 +1,23 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+  }
+  
+  .navbar {
+    border-bottom: 4px solid #4caf50; /* Green border for navbar */
+  }
+  
+  #summary {
+    background-color: #f1f1f1; /* Light gray background for summary section */
+  }
+  
+  .card {
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px); /* Lift card on hover */
+  }
+  
