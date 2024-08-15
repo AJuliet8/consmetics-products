@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Images Table</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom CSS styles */
+    body {
+      padding-top: 60px; /* Adjust based on navbar height */
+    }
+    .table img {
+      max-width: 100px; /* Adjust based on preferred image size */
+      height: auto;
+    }
+    .table-container {
+      margin: 20px auto;
+      max-width: 90%;
+    }
+    .navbar-brand {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Product Gallery</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#productGallery">Product Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Product Gallery Section -->
+  <section id="productGallery" class="py-5">
+    <div class="container table-container">
+      <h2 class="text-center mb-4">Product Gallery</h2>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Product Name</th>
+            <th scope="col">Product Image</th>
+            <th scope="col">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Classic Lipstick</td>
+            <td><img src="img/jpe.img" alt="Classic Lipstick"></td>
+            <td>A bold and vibrant lipstick in classic red, perfect for any occasion.</td>
+          </tr>
+          <tr>
+            <td>Moisturizing Foundation</td>
+            <td><img src="img/im.fififi.jfif" alt="Moisturizing Foundation"></td>
+            <td>A foundation that provides full coverage with a moisturizing formula for a flawless finish.</td>
+          </tr>
+          <tr>
+            <td>Refreshing Facial Mist</td>
+            <td><img src="img/img.jp.jpg" alt="Refreshing Facial Mist"></td>
+            <td>A hydrating facial mist to refresh and revitalize your skin throughout the day.</td>
+          </tr>
+          <!-- Add more rows as needed -->
+        </tbody>
+      </table>
+      <!-- Back to Dashboard Button -->
+      <div class="text-center mt-4">
+        <button class="btn btn-primary" onclick="redirectToDashboard()">Back to Dashboard</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4">Contact Us</h2>
+      <p class="text-center">For more information, please contact us at <a href="mailto:info@example.com">info@example.com</a>.</p>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+  <!-- JavaScript for redirection -->
+  <script>
+    function redirectToDashboard() {
+      window.location.href = 'dashboard.html'; // Update with your actual dashboard page URL
+    }
+  </script>
+</body>
+</html>

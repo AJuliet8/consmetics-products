@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Management</title>
+  <title>Add/Edit Product</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     /* Custom CSS styles */
@@ -40,78 +40,34 @@
     </div>
   </nav>
 
-  <!-- Product Catalog Section -->
-  <section id="productCatalog" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4">Product Catalog</h2>
-      <div class="row">
-        <div class="col-lg-4 col-md-6">
-          <div class="card">
-            <img src="path/to/product-image.jpg" class="card-img-top" alt="Product Image">
-            <div class="card-body">
-              <h5 class="card-title">Product Name</h5>
-              <p class="card-text">Product Description</p>
-              <p class="card-text"><strong>Price: </strong>$XX.XX</p>
-              <p class="card-text"><strong>Stock: </strong>Available/Out of Stock</p>
-              <a href="#" class="btn btn-primary">Edit</a>
-              <a href="#" class="btn btn-danger">Delete</a>
-            </div>
-          </div>
-        </div>
-        <!-- Repeat similar structure for other products -->
-      </div>
-    </div>
-  </section>
-
   <!-- Add/Edit Product Section -->
   <section id="addEditProduct" class="py-5 bg-light">
     <div class="container">
       <h2 class="text-center mb-4">Add/Edit Product</h2>
       <div class="row">
         <div class="col-md-6 mx-auto">
-          <form>
+          <form id="productForm">
             <div class="form-group">
               <label for="productName">Product Name</label>
-              <input type="text" class="form-control" id="productName" placeholder="Enter Product Name">
+              <input type="text" class="form-control" id="productName" placeholder="Enter Product Name" required>
             </div>
             <div class="form-group">
               <label for="productDescription">Product Description</label>
-              <textarea class="form-control" id="productDescription" rows="3" placeholder="Enter Product Description"></textarea>
+              <textarea class="form-control" id="productDescription" rows="3" placeholder="Enter Product Description" required></textarea>
             </div>
             <div class="form-group">
               <label for="productPrice">Price</label>
-              <input type="text" class="form-control" id="productPrice" placeholder="Enter Price">
+              <input type="number" class="form-control" id="productPrice" placeholder="Enter Price" required>
             </div>
             <div class="form-group">
               <label for="productStock">Stock Status</label>
-              <select class="form-control" id="productStock">
-                <option>Available</option>
-                <option>Out of Stock</option>
+              <select class="form-control" id="productStock" required>
+                <option value="">Select Status</option>
+                <option value="Available">Available</option>
+                <option value="Out of Stock">Out of Stock</option>
               </select>
             </div>
             <button type="submit" class="btn btn-primary">Save Product</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Product Categories Section -->
-  <section id="productCategories" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4">Product Categories</h2>
-      <div class="row">
-        <div class="col-md-6 mx-auto">
-          <form>
-            <div class="form-group">
-              <label for="categoryName">Category Name</label>
-              <input type="text" class="form-control" id="categoryName" placeholder="Enter Category Name">
-            </div>
-            <div class="form-group">
-              <label for="categoryTags">Tags (comma separated)</label>
-              <input type="text" class="form-control" id="categoryTags" placeholder="Enter Tags">
-            </div>
-            <button type="submit" class="btn btn-primary">Save Category</button>
           </form>
         </div>
       </div>
@@ -122,5 +78,32 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Script to handle form submission -->
+  <script>
+    document.getElementById('productForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the default form submission
+
+      // Collect form data
+      const product = {
+        name: document.getElementById('productName').value,
+        description: document.getElementById('productDescription').value,
+        price: document.getElementById('productPrice').value,
+        stockStatus: document.getElementById('productStock').value
+      };
+
+      // Get existing products from localStorage
+      let products = JSON.parse(localStorage.getItem('products')) || [];
+
+      // Add the new product
+      products.push(product);
+
+      // Save the updated product list back to localStorage
+      localStorage.setItem('products', JSON.stringify(products));
+
+      // Redirect to the product catalog page
+      window.location.href = 'tableofmanage.html';
+    });
+  </script>
 </body>
 </html>
